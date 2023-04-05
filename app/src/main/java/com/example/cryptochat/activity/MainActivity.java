@@ -169,11 +169,7 @@ public class MainActivity extends AppCompatActivity {
                 // Form item if there is no chat history
                 password = contactKeyMap.get(key).get(0);
                 contact = new Contact(contactKeyMap.get(key).get(1), key);
-                try {
-                    time = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(contactKeyMap.get(key).get(2));
-                } catch (ParseException e) {
-                    time = new Date();
-                }
+                time = new Date(0);
                 result.add(new ChatItem(contact, password, "Немає повідомлень", time, 0));
             }
         }

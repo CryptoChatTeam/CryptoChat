@@ -50,7 +50,10 @@ public class ChatListAdapter extends RecyclerView.Adapter<ChatListAdapter.ChatIt
         public void bind(ChatItem chatItem) {
             binding.name.setText(chatItem.getContactName());
             binding.message.setText(chatItem.getMessage());
+            binding.count.setVisibility(chatItem.getNumberUnreadMessages() == 0 ? View.GONE : View.VISIBLE);
+            binding.backgroundForMsgsCounter.setVisibility(chatItem.getNumberUnreadMessages() == 0 ? View.GONE : View.VISIBLE);
             binding.count.setText(String.valueOf(chatItem.getNumberUnreadMessages()));
+            binding.time.setVisibility(chatItem.getTime().before(new Date(1)) ? View.GONE : View.VISIBLE);
             binding.time.setText(String.valueOf(formatTimeDate(chatItem.getTime())));
         }
     }
